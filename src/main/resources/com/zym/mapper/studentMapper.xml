@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zym.mapper.StudentMapper">
+	<select id="stuFind" resultType="com.zym.dao.Student">
+		SELECT * FROM student
+	</select>
+	<insert id="stuSave" useGeneratedKeys="true" keyProperty="Id">
+		insert into student ( name, location, gender,
+		grade) values (
+		#{name}, #{location}, #{gender}, #{grade}
+		)
+		<!-- insert into student (Id, name, location, gender, -->
+		<!-- grade) values ( -->
+		<!-- #{Id}, #{name}, #{location}, #{gender}, #{grade} -->
+		<!-- ) -->
+	</insert>
+</mapper>
