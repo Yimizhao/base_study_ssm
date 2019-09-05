@@ -36,10 +36,11 @@ public class MapperTest {
 	public void testStuSave() {
 		StudentMapper studentMapper = session.getMapper(StudentMapper.class);
 		Student student = new Student();
-		student.setName("Jony");
-		student.setLocation("nanjing");
-		student.setGender("nan");
+		student.setName("Lay");
+		student.setLocation("长沙");
+		student.setGender("男");
 		student.setGrade(90);
+		student.setFlag(true);
 		studentMapper.stuSave(student);
 		session.commit();
 	}

@@ -5,6 +5,16 @@ public class Student {
 	private String name;
 	private String location;
 	private String gender;
+	private Boolean flag;
+
+	public Boolean getFlag() {
+		return flag;
+	}
+
+	public void setFlag(Boolean flag) {
+		this.flag = flag;
+	}
+
 	public String getGender() {
 		return gender;
 	}
@@ -49,7 +59,8 @@ public class Student {
 
 	@Override
 	public String toString() {
-		return "Student [Id=" + Id + ", name=" + name + ", location=" + location + ", grade=" + grade + "]";
+		return "Student [Id=" + Id + ", name=" + name + ", location=" + location + ", gender=" + gender + ", flag="
+				+ flag + ", grade=" + grade + "]";
 	}
 
 }

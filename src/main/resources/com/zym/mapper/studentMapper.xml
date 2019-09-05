@@ -6,8 +6,8 @@
 	</select>
 	<insert id="stuSave" useGeneratedKeys="true" keyProperty="Id">
 		insert into student ( name, location, gender,
-		grade) values (
-		#{name}, #{location}, #{gender}, #{grade}
+		grade,flag) values (
+		#{name}, #{location}, #{gender}, #{grade}, #{flag}
 		)
 		<!-- insert into student (Id, name, location, gender, -->
 		<!-- grade) values ( -->
