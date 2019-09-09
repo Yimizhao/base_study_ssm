@@ -6,11 +6,11 @@ import com.zym.handler.BehaviorHandler;
 
 public class ProxyFactory {
 
-	public static Object builder(Class<?> proxyClass)
+	public static <T> T builder(Class<T> proxyClass)
 			throws IllegalArgumentException, InstantiationException, IllegalAccessException {
 
-		return Proxy.newProxyInstance(proxyClass.getClassLoader(), proxyClass.getInterfaces(),
-				new BehaviorHandler(proxyClass.newInstance()));
+		return (T) Proxy.newProxyInstance(proxyClass.getClassLoader(), proxyClass.getInterfaces(),
+				new BehaviorHandler((T)proxyClass.newInstance()));
 	}
 
 }

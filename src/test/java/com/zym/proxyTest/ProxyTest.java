@@ -10,7 +10,7 @@ public class ProxyTest {
 
 	@Test
 	public void behavoirProxyTest() throws IllegalArgumentException, InstantiationException, IllegalAccessException {
-		Behavior persion = (Behavior) ProxyFactory.builder(Person.class);
+		Behavior persion = ProxyFactory.builder(Person.class);
 		persion.eat();
 		persion.toilet();
 	}

@@ -15,15 +15,21 @@ public class BehaviorHandler implements InvocationHandler {
 	public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
 
 		Object value = null;
-		if ("eat".equals(method.getName())) {
-			System.out.println("饭前请洗手！");
+		String methodNm = method.getName();
+		if ("eat".equals(methodNm)) {
+			wash();
 			value = method.invoke(obj, args);
-		} else if ("toilet".equals(method.getName())) {
+		} else if ("toilet".equals(methodNm)) {
 			value = method.invoke(obj, args);
-			System.out.println("便后请洗手！");
+			wash();
 		}
 
 		return value;
+	}
+
+	public void wash() {
+
+		System.out.println("请洗手！");
 	}
 
 }
