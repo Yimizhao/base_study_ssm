@@ -11,12 +11,12 @@ public class Student {
 		return flag;
 	}
 
-	public void setFlag(Boolean flag) {
-		this.flag = flag;
-	}
-
 	public String getGender() {
 		return gender;
+	}
+
+	public void setFlag(Boolean flag) {
+		this.flag = flag;
 	}
 
 	public void setGender(String gender) {
