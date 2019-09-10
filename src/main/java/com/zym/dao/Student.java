@@ -57,6 +57,28 @@ public class Student {
 		this.grade = grade;
 	}
 
+	public Student() {
+		super();
+	}
+
+	public Student(Integer id, String name, String location, String gender, Boolean flag, Integer grade) {
+		Id = id;
+		this.name = name;
+		this.location = location;
+		this.gender = gender;
+		this.flag = flag;
+		this.grade = grade;
+	}
+
+	public Student(String name, String location, String gender, Boolean flag, Integer grade) {
+		super();
+		this.name = name;
+		this.location = location;
+		this.gender = gender;
+		this.flag = flag;
+		this.grade = grade;
+	}
+
 	@Override
 	public String toString() {
 		return "Student [Id=" + Id + ", name=" + name + ", location=" + location + ", gender=" + gender + ", flag="

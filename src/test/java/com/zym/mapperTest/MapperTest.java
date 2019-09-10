@@ -1,5 +1,7 @@
 package com.zym.mapperTest;
 
+import java.lang.reflect.Array;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
@@ -31,6 +33,18 @@ public class MapperTest {
 		List<Student> students = studentMapper.stuFind();
 		System.out.println(students);
 	}
+	@Test
+	public void testStuFindById() {
+		StudentMapper studentMapper = session.getMapper(StudentMapper.class);
+		List<Integer> ids = new ArrayList<>();
+		ids.add(201107);
+//		ids.add(201809);
+//		ids.add(201819);
+		List<Student> students = studentMapper.stuFindById(ids);
+		System.out.println("-----------------------------");
+		System.out.println(students);
+		System.out.println("-----------------------------");
+	}
 
 	@Test
 	public void testStuSave() {
@@ -42,6 +56,19 @@ public class MapperTest {
 		student.setGrade(90);
 		student.setFlag(true);
 		studentMapper.stuSave(student);
+		session.commit();
+	}
+	@Test
+	public void testStuListSave() {
+		StudentMapper studentMapper = session.getMapper(StudentMapper.class);
+		List<Student> students = new ArrayList<Student>();
+		Student student1 = new Student("李楠", "上海", "男", true, 60);
+		Student student2 = new Student("李楠", "上海", "男", true, 60);
+		Student student3 = new Student("李楠", "上海", "男", true, 60);
+		students.add(student1);
+		students.add(student2);
+		students.add(student3);
+		studentMapper.stuListSave(students);
 		session.commit();
 	}
 

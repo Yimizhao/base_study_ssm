@@ -4,6 +4,18 @@
 	<select id="stuFind" resultType="com.zym.dao.Student">
 		SELECT * FROM student
 	</select>
+	<select id="stuFindById" resultType="com.zym.dao.Student">
+		SELECT * FROM student
+		<where>
+<!-- 			<if test="ids != null AND ids.size() > 0 "> -->
+				Id IN
+				<foreach collection="list" item="id" open="(" close=")"
+					separator=",">
+					#{id}
+				</foreach>
+<!-- 			</if> -->
+		</where>
+	</select>
 	<insert id="stuSave" useGeneratedKeys="true" keyProperty="Id">
 		insert into student ( name, location, gender,
 		grade,flag) values (
@@ -13,5 +25,12 @@
 		<!-- grade) values ( -->
 		<!-- #{Id}, #{name}, #{location}, #{gender}, #{grade} -->
 		<!-- ) -->
+	</insert>
+	<insert id="stuListSave" useGeneratedKeys="true" keyProperty="Id">
+		insert into student ( name, location, gender,grade,flag) values
+		<foreach collection="list" item="student" separator=",">
+			(#{student.name}, #{student.location}, #{student.gender},
+			#{student.grade}, #{student.flag})
+		</foreach>
 	</insert>
 </mapper>

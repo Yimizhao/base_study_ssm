@@ -6,6 +6,7 @@ import com.zym.handler.BehaviorHandler;
 
 public class ProxyFactory {
 
+	@SuppressWarnings("unchecked")
 	public static <T> T builder(Class<T> proxyClass)
 			throws IllegalArgumentException, InstantiationException, IllegalAccessException {
 
