@@ -9,7 +9,6 @@ public class Person implements Behavior {
 		System.out.println("用筷子......");
 
 	}
-
 	@Override
 	public void toilet() {
 		System.out.println("排泄.......");
