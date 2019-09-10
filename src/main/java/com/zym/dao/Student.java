@@ -7,12 +7,12 @@ public class Student {
 	private String gender;
 	private Boolean flag;
 
-	public Boolean getFlag() {
-		return flag;
-	}
-
 	public void setFlag(Boolean flag) {
 		this.flag = flag;
+	}
+
+	public Boolean getFlag() {
+		return flag;
 	}
 
 	public String getGender() {
