@@ -23,6 +23,8 @@ public class BeanFactory {
 			if ("singleton".equals(beanDefinited.getScope())) {
 				Class<?> beanClass = Class.forName(beanDefinited.getClazz());
 				Object instance = beanClass.newInstance();
+				
+				setParamete(instance, beanDefinited.getPropertys());
 
 				isProcessor(instance, beanDefinited);
 
@@ -106,11 +108,11 @@ public class BeanFactory {
 				if ("prototype".equals(beanDefinited.getScope())) {
 					Class<?> beanClass = Class.forName(beanDefinited.getClazz());
 					result = beanClass.newInstance();
+					setParamete(result, propertys);
 				} else {
 					result = springIoc.get(beanDefinited.getId());
 				}
 
-				setParamete(result, propertys);
 			}
 		}
 
