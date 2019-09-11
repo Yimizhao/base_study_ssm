@@ -43,7 +43,7 @@ public class SpringTest {
 		nameProperty.setName("name");
 		nameProperty.setValue("YImi");
 		ageProperty.setName("age");
-		ageProperty.setValue(26);
+		ageProperty.setValue("26");
 		propertys.add(nameProperty);
 		propertys.add(ageProperty);
 		beanDefinited.setPropertys(propertys);
@@ -61,7 +61,7 @@ public class SpringTest {
 		nameProperty1.setName("name");
 		nameProperty1.setValue("jony");
 		ageProperty1.setName("age");
-		ageProperty1.setValue(13);
+		ageProperty1.setValue("13");
 		propertys1.add(nameProperty1);
 		propertys1.add(ageProperty1);
 		beanDefinited1.setPropertys(propertys1);

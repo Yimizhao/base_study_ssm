@@ -2,7 +2,7 @@ package com.zym.spring.util;
 
 public class Property {
 	private String name;
-	private Object value;
+	private String value;
 
 	public String getName() {
 		return name;
@@ -12,11 +12,11 @@ public class Property {
 		this.name = name;
 	}
 
-	public Object getValue() {
+	public String getValue() {
 		return value;
 	}
 
-	public void setValue(Object value) {
+	public void setValue(String value) {
 		this.value = value;
 	}
 
