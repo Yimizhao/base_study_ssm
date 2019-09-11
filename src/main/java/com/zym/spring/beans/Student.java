@@ -30,8 +30,8 @@ public class Student {
 		System.out.println("Student 构造方法");
 	}
 	
-	public void study() {
-		System.out.println("Student 学习");
+	public String study() {
+		return "good good study";
 	}
 	
 }

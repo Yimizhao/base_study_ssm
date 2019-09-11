@@ -1,15 +1,21 @@
 package com.zym.spring.util;
 
 import java.lang.reflect.Field;
+import java.lang.reflect.InvocationHandler;
+import java.lang.reflect.Method;
+import java.lang.reflect.Proxy;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Objects;
 
 public class BeanFactory {
 
 	List<BeanDefinited> beanDefinitedList;
 
 	Map<String, Object> springIoc = new HashMap<>();
+	
+	BeanPostProcessor beanPostProcessor;
 
 	public BeanFactory(List<BeanDefinited> beanDefinitedList) throws Exception {
 		this.beanDefinitedList = beanDefinitedList;
@@ -26,7 +32,13 @@ public class BeanFactory {
 					field.setAccessible(true);
 					field.set(instance, value);
 				}
-				springIoc.put(beanDefinited.getId(), instance);
+				
+				if (beanClass == BeanPostProcessor.class) {
+					beanPostProcessor = (BeanPostProcessor) instance;
+				} else {
+					
+					springIoc.put(beanDefinited.getId(), instance);
+				}
 			}
 		}
 	}
@@ -54,6 +66,21 @@ public class BeanFactory {
 				}
 			}
 		}
+		
+//		if (Objects.nonNull(beanPostProcessor)) {
+//			
+//			Proxy.newProxyInstance(result.getClass().getClassLoader(), result.getClass().getGenericInterfaces() , new InvocationHandler() {
+//				
+//				@Override
+//				public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
+//					beanPostProcessor.postProcessBeforeInitialization(result, classId);
+//					beanPostProcessor.postProcessAfterInitialization(result, classId);
+//					method.invoke(result, args);
+//					return null;
+//				}
+//			})
+//		}
+		
 		return result;
 	}
 
