@@ -8,4 +8,6 @@
 		<property name="name" value="Yimi" />
 		<property name="age" value="26" />
 	</bean>
+	<bean id="student" class="com.zym.spring.beans.Student"></bean>
+	<bean class="com.zym.spring.beanPostProcessor.MyBeanPostProcessor"></bean>
 </beans>

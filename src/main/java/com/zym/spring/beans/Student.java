@@ -25,5 +25,13 @@ public class Student {
 	public String toString() {
 		return "Student [name=" + name + ", age=" + age + "]";
 	}
-
+	
+	public  Student() {
+		System.out.println("Student 构造方法");
+	}
+	
+	public void study() {
+		System.out.println("Student 学习");
+	}
+	
 }
