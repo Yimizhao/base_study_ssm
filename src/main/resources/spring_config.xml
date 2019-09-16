@@ -6,21 +6,32 @@
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd
 		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.3.xsd">
 
-	<bean id="teacher" class="com.zym.spring.beans.Teacher" scope="prototype">
-		<property name="name" value="Yimi" />
-		<property name="age" value="26" />
-	</bean>
-	<bean id="cService" class="com.zym.spring.serviceImpl.CServiceImpl"></bean>
-<!-- 	<bean class="com.zym.spring.beanPostProcessor.MyBeanPostProcessor"></bean> -->
+	<!-- <bean id="teacher" class="com.zym.spring.beans.Teacher" scope="prototype"> -->
+	<!-- <property name="name" value="Yimi" /> -->
+	<!-- <property name="age" value="26" /> -->
+	<!-- </bean> -->
+	<!-- <bean id="cService" class="com.zym.spring.serviceImpl.CServiceImpl"></bean> -->
+	<!-- <bean class="com.zym.spring.beanPostProcessor.MyBeanPostProcessor"></bean> -->
 
-	<bean name="person" class="com.zym.spring.aop.serviceImpl.Persion"></bean>
-	<bean name="myAdvice" class="com.zym.spring.aop.advice.MyAdvice"></bean>
-	<bean name="personProxy" class="org.springframework.aop.framework.ProxyFactoryBean">
-		<property name="target" ref="person"></property>
-		<property name="interceptorNames">
-			<array>
-				<value>myAdvice</value>
-			</array>
-		</property>
-	</bean>
+	<!-- <bean name="person" class="com.zym.spring.aop.serviceImpl.Persion"></bean> -->
+	<!-- <bean name="myAdvice" class="com.zym.spring.aop.advice.MyAdvice"></bean> -->
+	<!-- <bean name="personProxy" class="org.springframework.aop.framework.ProxyFactoryBean"> -->
+	<!-- <property name="target" ref="person"></property> -->
+	<!-- <property name="interceptorNames"> -->
+	<!-- <array> -->
+	<!-- <value>myAdvice</value> -->
+	<!-- </array> -->
+	<!-- </property> -->
+	<!-- </bean> -->
+	<!-- <context:component-scan base-package="com.zym.serviceImpl"></context:component-scan> -->
+<!-- 	<bean id="person" class="com.zym.serviceImpl.Person"></bean> -->
+	<bean id="personFactory" class="com.zym.factory.PersonFactory"></bean>
+	<bean id="personByFactory" factory-bean="personFactory"
+		factory-method="getPerson"></bean>
+	<bean id="person" factory-bean="personFactory"
+		factory-method="getPerson"></bean>
+	<bean id="personByStaticFactory" class="com.zym.factory.PersonStaticFactory"
+		factory-method="getPerson"></bean>
+	<bean id="dogg" class="com.zym.serviceImpl.Dog"></bean>
+	<context:component-scan base-package="com.zym.serviceImpl"></context:component-scan>
 </beans>
