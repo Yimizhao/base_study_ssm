@@ -44,3 +44,16 @@ new	InvocationHandler() {
 	前置通知（Before）—〉目标方法—〉最终通知（after）—〉后置通知（afterreturning）
 2、有异常时
 	前置通知（Before）—〉目标方法—〉最终通知（after）—〉异常通知（afterthrowing）
+
+Note：下面的形式是错误的
+*		try {
+*			System.out.println("前置通知");
+*			System.out.println("保存user对象");
+*			System.out.println("后置通知");
+*		} catch (Exception e) {
+*			System.out.println("异常通知");
+*		} finally {
+*			System.out.println("最终通知");
+*		}
+
+
