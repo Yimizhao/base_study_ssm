@@ -14,11 +14,13 @@
 	<!-- AOP配置 -->
 	<aop:config>
 
-		<aop:aspect ref="userLogAdvice">
+		<aop:aspect ref="myAdvice">
 			<aop:pointcut
 				expression="execution(* com.zym.spring.aop.aspectj.service.*.*(..))"
 				id="pointcut" />
+			<!-- 前置通知 -->
 			<aop:before method="startLog" pointcut-ref="pointcut" />
+			<!-- 最终通知 -->
 			<aop:after method="endLog" pointcut-ref="pointcut" />
 		</aop:aspect>
 	</aop:config>
