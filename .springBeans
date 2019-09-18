@@ -9,6 +9,7 @@
 	<configs>
 		<config>src/main/resources/spring_config.xml</config>
 		<config>src/main/resources/springaopConfiguration.xml</config>
+		<config>src/main/resources/springJDBC-configuration.xml</config>
 	</configs>
 	<autoconfigs>
 	</autoconfigs>
