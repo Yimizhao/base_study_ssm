@@ -7,9 +7,9 @@
 		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.3.xsd">
 	<context:component-scan base-package="com.zym.spring.aop.pojo"></context:component-scan>
 	<!-- 配置目标类 -->
-	<bean id="person" class="com.zym.spring.aop.pojo.Person"></bean>
+<!-- 	<bean id="person" class="com.zym.spring.aop.pojo.Person"></bean> -->
 	<!-- 配置通知类 -->
-	<bean id="behaviorAdvice" class="com.zym.spring.aop.pojo.BehaviorAdvice"></bean>
+<!-- 	<bean id="behaviorAdvice" class="com.zym.spring.aop.pojo.BehaviorAdvice"></bean> -->
 	<aop:config>
 		<aop:aspect ref="behaviorAdvice">
 			<aop:pointcut expression="execution(* com.zym.spring.aop.pojo.*.*eat(..))" id="beforePointcut" />

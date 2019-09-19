@@ -1,5 +1,8 @@
 package com.zym.spring.aop.pojo;
 
+import org.springframework.stereotype.Component;
+
+@Component
 public class BehaviorAdvice {
 
 
