@@ -10,6 +10,9 @@
 		<config>src/main/resources/spring_config.xml</config>
 		<config>src/main/resources/springaopConfiguration.xml</config>
 		<config>src/main/resources/springJDBC-configuration.xml</config>
+		<config>src/main/resources/springClassicAOP-configuration.xml</config>
+		<config>src/main/resources/springAspectAnnotationDriver-configuration.xml</config>
+		<config>src/main/resources/SpringPOJO-configuration.xml</config>
 	</configs>
 	<autoconfigs>
 	</autoconfigs>

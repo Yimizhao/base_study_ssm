@@ -1,0 +1,16 @@
+spring实现AOP的方式：经典方式
+目标类（target）
+	业务类（提供接口）
+通知（advice）
+	实现：通过实现spring提供的借口定义自己的通知类
+	①前置通知（Before Advice）    MethodBeforeAdvice（I）：void before(Method m, Object[] args, Object target) 
+	②后置返回通知（After Returning Advice）    AfterReturningAdvice（I）：afterReturning(Object returnValue, Method m, Object[] args, Object target)
+	③环绕通知（Around Advice ）   MethodInterceptor（I）：  Object invoke(MethodInvocation invocation)
+	④异常通知（Throws Advice）    RemoteThrowsAdvice（I）：void afterThrowing(RemoteException ex)
+代理（Proxy）
+	生成：利用ProxyFactoryBean生成一个代理类
+	参数：
+		①target:目标类
+		②proxyinterfaces：代理的借接口（JDK动态代理）
+		③interceptorNames：自定义的通知
+特点：需要在XML编写

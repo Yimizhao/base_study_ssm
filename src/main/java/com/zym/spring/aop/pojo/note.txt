@@ -1,0 +1,1 @@
+spring实现AOP的方式：纯POJO
