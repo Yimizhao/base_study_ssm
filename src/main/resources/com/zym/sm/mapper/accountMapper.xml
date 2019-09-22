@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zym.sm.mapper.AccountMapper">
+	<select id="findMoney" resultType="Integer" parameterType="string">
+
+		SELECT balance FROM account WHERE name = #{name}
+	</select>
+
+	<update id="updateAccount" parameterType="map">
+		UPDATE account SET
+		balance = #{balance} WHERE name = #{name}
+	</update>
+
+</mapper>

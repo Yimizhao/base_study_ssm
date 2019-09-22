@@ -13,6 +13,8 @@
 		<config>src/main/resources/springClassicAOP-configuration.xml</config>
 		<config>src/main/resources/springAspectAnnotationDriver-configuration.xml</config>
 		<config>src/main/resources/SpringPOJO-configuration.xml</config>
+		<config>src/main/resources/spring/sm/applicatonContext-dao.xml</config>
+		<config>src/main/resources/spring/sm/app.xml</config>
 	</configs>
 	<autoconfigs>
 	</autoconfigs>

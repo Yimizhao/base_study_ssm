@@ -1,6 +1,5 @@
 package com.zym.mapperTest;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
@@ -15,6 +14,7 @@ import org.junit.Test;
 
 import com.zym.dao.Student;
 import com.zym.mapper.StudentMapper;
+import com.zym.sm.mapper.AccountMapper;
 
 public class MapperTest {
 	private SqlSession session;
@@ -33,13 +33,14 @@ public class MapperTest {
 		List<Student> students = studentMapper.stuFind();
 		System.out.println(students);
 	}
+
 	@Test
 	public void testStuFindById() {
 		StudentMapper studentMapper = session.getMapper(StudentMapper.class);
 		List<Integer> ids = new ArrayList<>();
 		ids.add(201107);
-//		ids.add(201809);
-//		ids.add(201819);
+		// ids.add(201809);
+		// ids.add(201819);
 		List<Student> students = studentMapper.stuFindById(ids);
 		System.out.println("-----------------------------");
 		System.out.println(students);
@@ -58,6 +59,7 @@ public class MapperTest {
 		studentMapper.stuSave(student);
 		session.commit();
 	}
+
 	@Test
 	public void testStuListSave() {
 		StudentMapper studentMapper = session.getMapper(StudentMapper.class);
@@ -77,6 +79,14 @@ public class MapperTest {
 		if (Objects.nonNull(session)) {
 			session.close();
 		}
+	}
+
+	@Test
+	public void testAccount() {
+		AccountMapper accountMapper = (AccountMapper) session.getMapper(AccountMapper.class);
+		Integer money = accountMapper.findMoney("老公");
+		System.out.println(money);
+
 	}
 
 }

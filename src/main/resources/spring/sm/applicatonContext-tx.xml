@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.3.xsd
+		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.3.xsd">
+	<!-- 配置xml的事务管理 -->
+	<bean id="transactionManager"
+		class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+		<property name="dataSource" ref="dataSource"></property>
+	</bean>
+
+
+	<!-- 事务通知 -->
+	<!-- tx:advice：对应的处理器类就是TransactionInterceptor类（实现了MethodInterceptor） -->
+	<!-- TransactionInterceptor类实现事务是通过transaction-manager属性指定的值进行事务管理 -->
+	<tx:advice id="txAdvice" transaction-manager="transactionManager">
+		<!-- 设置事务管理信息 -->
+		<tx:attributes>
+			<!-- 增删改使用REQUIRED事务传播行为 -->
+			<!-- 查询使用read-only -->
+			<tx:method name="transfer*" propagation="REQUIRED"
+				isolation="DEFAULT" />
+		</tx:attributes>
+	</tx:advice>
+
+	<!-- 基于AspectJ + XML方式实现声明式事务 -->
+	<aop:config>
+		<aop:pointcut expression="execution(* com.zym.sm.service.*.*(..))"
+			id="pointcut" />
+		<aop:advisor advice-ref="txAdvice" pointcut-ref="pointcut" />
+	</aop:config>
+
+</beans>
